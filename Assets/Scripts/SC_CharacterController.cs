@@ -7,7 +7,7 @@ public class SC_CharacterController : MonoBehaviour
 {
     #region --Variables---
     [SerializeField] float speed = 7.5f;
-    [SerializeField] float jumpSpeed = 8.0f;
+    [SerializeField] float jumpSpeed = 10.0f;
     [SerializeField] float gravity = 20.0f;
     [SerializeField] Camera playerCamera;
     [SerializeField] float lookSpeed = 2.0f;
@@ -17,6 +17,7 @@ public class SC_CharacterController : MonoBehaviour
     CharacterController characterController;
     Vector3 moveDirection = Vector3.zero;
     Vector2 rotation = Vector2.zero;
+    Animator Anime;
 
     [HideInInspector]
     [SerializeField] bool canMove = true;
@@ -25,6 +26,7 @@ public class SC_CharacterController : MonoBehaviour
     {
         characterController = GetComponent<CharacterController>();
         rotation.y = transform.eulerAngles.y;
+        Anime = GetComponent<Animator>();
     }
 
     void Update()

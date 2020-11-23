@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class mouselook : MonoBehaviour
+public class Player_View : MonoBehaviour
 {
     public float mouse_sensivity =100f;
     public Transform View;
@@ -18,11 +18,15 @@ public class mouselook : MonoBehaviour
     {
         float mouseX = Input.GetAxis("Mouse X") * mouse_sensivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouse_sensivity * Time.deltaTime;
+        Debug.Log(mouseY);
         
         invertedY -= mouseY;
         invertedY = Mathf.Clamp(invertedY,-90f,90f);
+        Debug.Log(invertedY);
 
         transform.localRotation = Quaternion.Euler(invertedY,0f,0f);
         View.Rotate(Vector3.up * mouseX);
+        
+       
     }
 }

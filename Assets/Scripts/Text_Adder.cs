@@ -5,20 +5,33 @@ using UnityEngine;
 public class Text_Adder : MonoBehaviour
 {
     public Game_Manager gm; 
-    void OnTriggerEnter(Collider other) 
+    public bool Chance;
+
+    void Start()
     {
-        if(other.tag == "Player")
+        Chance = true;
+    }
+    void OnTriggerStay(Collider other) 
+    {
+        if(other.tag == "Player" && Chance)
         {
+            if(Input.GetKeyDown(KeyCode.O))
+            {
+                gm.a += 1;
+                this.transform.Rotate(0f,0f,-60f);
+                Chance = false;
+            }
             
-            this.transform.Rotate(0f,0f,-60f);
         }
     }
     void OnTriggerExit(Collider other) 
     {        
         if(other.tag == "Player")
         {
-            if(gm.a < 3 ){gm.a += 1;}
-            this.GetComponent<Collider>().isTrigger = false;
+            if(!Chance)
+            {
+                this.GetComponent<Collider>().isTrigger = false;
+            }
         }   
     }
 

@@ -55,6 +55,8 @@ public class Player : MonoBehaviour
     public ParticleSystem bloodParticle;
     public GameObject GameManger;
     public GameObject gameOverPanel;
+    float rotX;
+    float rotY;
 
     private void Awake()
     {
@@ -177,14 +179,16 @@ public class Player : MonoBehaviour
         while(currentState == "Move")
         {
             // Checks for any input is detected from the mouse
-            if(Input.GetAxis("Mouse X") != 0)
+            if(Input.GetAxis("Mouse X") != 0 || Input.GetAxis("Mouse Y")!= 0)
             {
                 Vector3 newRotation = transform.localRotation.eulerAngles;
-
+                 rotX += Input.GetAxis("Mouse X") * rotationSpeed * Time.deltaTime;
+                 rotY -= Input.GetAxis("Mouse Y") * rotationSpeed * Time.deltaTime;
+                rotY = Mathf.Clamp(rotY, -30f, 60f);
                 // Rotate the player based on how much the mouse has moved.
-                newRotation += transform.up * Input.GetAxis("Mouse X") * rotationSpeed * Time.deltaTime;
+                //newRotation += transform.up * Input.GetAxis("Mouse X") * rotationSpeed * Time.deltaTime;
 
-                 transform.localRotation = Quaternion.Euler(newRotation);
+                transform.eulerAngles = new Vector3(rotY,rotX, 0f);
             }
 
             // Get the direction of movement for the player.
@@ -244,6 +248,7 @@ public class Player : MonoBehaviour
             if(hit.transform.CompareTag("Zombie"))//if hit gameObject tag is Zombie then it will return true
             {
                 hit.transform.GetComponent<Zombie_AI>().Damage(damageZombie);//it will call Damage function from Zombie_AI script and passing damageZombie value 
+                if (bloodParticle == null) return;
                 Instantiate(bloodParticle, hit.transform.position,Quaternion.identity);// it will spawn blood particle in the place of hit
             }
         }

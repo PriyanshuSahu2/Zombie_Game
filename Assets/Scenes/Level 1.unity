@@ -1196,7 +1196,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 300662bbf3f55564ab0a659211eec29c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  KeyPressed: 0
 --- !u!65 &22443316
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -46796,7 +46795,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 300662bbf3f55564ab0a659211eec29c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  KeyPressed: 0
 --- !u!65 &990436658
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -62801,7 +62799,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 300662bbf3f55564ab0a659211eec29c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  KeyPressed: 0
 --- !u!1001 &1312185276
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -74146,7 +74143,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 300662bbf3f55564ab0a659211eec29c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  KeyPressed: 0
 --- !u!1001 &1510566712
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -103756,6 +103752,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8022852674071240047, guid: 985fcb4a534b56c4595da00995fe6f3b,
+        type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8022852674071240047, guid: 985fcb4a534b56c4595da00995fe6f3b,
+        type: 3}
+      propertyPath: lengthInSec
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 9181111504736632485, guid: 985fcb4a534b56c4595da00995fe6f3b,
         type: 3}
       propertyPath: m_Name

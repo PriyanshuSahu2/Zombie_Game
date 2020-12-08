@@ -11,7 +11,6 @@ public class GameManager : MonoBehaviour
     public bool haveGun = false;// to check player have secondry gun or not
     public GameObject gameEndPanel;
     public Text totalZombies; //assign the total number of zombies in the text
-
     // Update is called once per frame
     private void Start()
     {
@@ -23,6 +22,7 @@ public class GameManager : MonoBehaviour
         totalZombies.GetComponent<Text>().text = gb.Length.ToString();//to update the total number of zombies  and show it in the text
         if (gb.Length == 0 && haveKey && haveNote && haveGun) //to check  if there are not a single zombie left in the scene ,and if the player have key , note  and sceondry Gun
         {
+
             gameEndPanel.SetActive(true);// if all condition are true then the player have win  the game and show game End Panel
         }
     }

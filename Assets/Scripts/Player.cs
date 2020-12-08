@@ -94,7 +94,13 @@ public class Player : MonoBehaviour
             Shoot();
         }
         
-        Debug.DrawLine(cam.transform.position, cam.transform.forward);
+        if(gameOverPanel.activeSelf)
+        {
+            audio.Stop();
+        }else
+        {
+            audio.Play();
+        }
         //Debug.DrawLine(playerHead.position, playerHead.position + (playerHead.forward * interactionDistance), Color.red);
         // Debug.DrawLine(gunPoint.transform.position, gunPoint.transform.forward * 100f, Color.gr);
         // If the player presses left mouse button (interact btn)

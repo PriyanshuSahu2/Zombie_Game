@@ -78,6 +78,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log("dd");
         Debug.DrawRay(gunPoint.transform.position,transform.forward, Color.green);
         
         // Check if player touches ground and if space is pressed
@@ -89,36 +90,22 @@ public class Player : MonoBehaviour
         {
             PlayerDied();
         }
-        if(Input.GetButtonDown("Fire1")) // if the player presses Fire1 Button i.e. Left Mouse button then it will call Shoot function
-        {
-            Shoot();
-        }
-        
-        if(gameOverPanel.activeSelf)
-        {
-            audio.Stop();
-        }else
-        {
-            audio.Play();
-        }
-        //Debug.DrawLine(playerHead.position, playerHead.position + (playerHead.forward * interactionDistance), Color.red);
-        // Debug.DrawLine(gunPoint.transform.position, gunPoint.transform.forward * 100f, Color.gr);
-        // If the player presses left mouse button (interact btn)
-        if (Input.GetButtonDown("Interact"))
+        if(Input.GetButtonDown("Fire2"))
         {
             RaycastHit hitInfo;
             // Transform mouse position from camera to ray
             //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             // Get object at mouse pos
-            
-            if (Physics.Raycast(gunPoint.transform.position,gunPoint.transform.forward,out hitInfo))
+
+            if (Physics.Raycast(gunPoint.transform.position, gunPoint.transform.forward, out hitInfo))
             {
-                
+                Debug.Log("Priyansh");
+
                 Debug.Log(hitInfo.collider.name);
                 // Calc distance between player and current object
                 float distanceToObject = Vector3.Distance(transform.position, hitInfo.transform.position);
                 Debug.Log("Distance to " + hitInfo.collider.name + ": " + distanceToObject);
-                
+
                 // Get the interactable class from this object
                 Interactable interactable = hitInfo.collider.GetComponent<Interactable>();
                 // Check if interactable is null and if the distance is below the limit for interaction
@@ -129,6 +116,22 @@ public class Player : MonoBehaviour
                 }
             }
         }
+        if(Input.GetButtonDown("Fire1")) // if the player presses Fire1 Button i.e. Left Mouse button then it will call Shoot function
+        {
+            Shoot();
+        }
+        if (gameOverPanel == null) return;
+
+        if(gameOverPanel.activeSelf)
+        {
+            audio.Stop();
+        }else
+        {
+            audio.Play();
+        }
+
+       
+       
     }
 
     // Check if player touches ground

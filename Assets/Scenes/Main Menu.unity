@@ -1278,7 +1278,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Left Mouse Btn
+  m_Text: Right Mouse Btn
 --- !u!222 &532424377
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3673,7 +3673,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: RIght Mouse Btn
+  m_Text: Left Mouse Btn
 --- !u!222 &1955666794
 CanvasRenderer:
   m_ObjectHideFlags: 0
